@@ -1,0 +1,15 @@
+#+AUTHOR: Chunyang Xu
+#+DATE: 2016-11-11
+
+* Develop =hl-issue-id.el=
+
+** TODO Make a function to highlight =#123= via =font-lock-add-keywords=
+
+   Don't forget to *override* exiting highlight if any, otherwise it will not
+   work.
+
+** TODO Convert the function into =hl-issue-id-mode=
+
+* Ideas for =hl-issue-id-mode=
+
+** Buttonize issue id for gnu debbugs and github issue
