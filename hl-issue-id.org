@@ -8,7 +8,7 @@
    Don't forget to *override* exiting highlight if any, otherwise it will not
    work.
 
-** TODO Convert the function into =hl-issue-id-mode=
+** DONE Convert the function into =hl-issue-id-mode=
 
 * Ideas for =hl-issue-id-mode=
 

@@ -25,10 +25,23 @@
 
 ;;; Code:
 
-(defun hl-issue-id ()
+;;;###autoload
+(define-minor-mode hl-issue-id-mode
   "Highlight issue id like #123."
-  (interactive)
-  (font-lock-add-keywords nil '(("#[0-9]+" 0 font-lock-warning-face prepend))))
+  :lighter " #123"
+  (if hl-issue-id-mode
+      (font-lock-add-keywords nil '(("#[0-9]+" 0 font-lock-warning-face prepend)) t)
+    (font-lock-remove-keywords nil '(("#[0-9]+" 0 font-lock-warning-face prepend))))
+  ;; Copied from hl-todo.el
+  (when font-lock-mode
+    (if (and (fboundp 'font-lock-flush)
+             (fboundp 'font-lock-ensure))
+        (save-restriction
+          (widen)
+          (font-lock-flush)
+          (font-lock-ensure))
+      (with-no-warnings
+        (font-lock-fontify-buffer)))))
 
 (provide 'hl-issue-id)
 ;;; hl-issue-id.el ends here
