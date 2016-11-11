@@ -1,6 +1,8 @@
 #+AUTHOR: Chunyang Xu
 #+DATE: 2016-11-11
 
+#+TODO: TODO FIXME | DONE CANCELED
+
 * Develop =hl-issue-id.el=
 
 ** DONE Make a function to highlight =#123= via =font-lock-add-keywords=
@@ -9,6 +11,8 @@
    work.
 
 ** DONE Convert the function into =hl-issue-id-mode=
+
+** FIXME Breaking exiting Font Lock in some modes such as =magit-log-mode=
 
 * Ideas for =hl-issue-id-mode=
 
