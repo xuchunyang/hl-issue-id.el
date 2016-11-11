@@ -20,11 +20,15 @@
 
 ;;; Commentary:
 
-;;
+;; #1 Test 123
+;; #2 Test again 123#456
 
 ;;; Code:
 
-
+(defun hl-issue-id ()
+  "Highlight issue id like #123."
+  (interactive)
+  (font-lock-add-keywords nil '(("#[0-9]+" 0 font-lock-warning-face prepend))))
 
 (provide 'hl-issue-id)
 ;;; hl-issue-id.el ends here

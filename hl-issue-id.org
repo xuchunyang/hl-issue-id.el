@@ -3,7 +3,7 @@
 
 * Develop =hl-issue-id.el=
 
-** TODO Make a function to highlight =#123= via =font-lock-add-keywords=
+** DONE Make a function to highlight =#123= via =font-lock-add-keywords=
 
    Don't forget to *override* exiting highlight if any, otherwise it will not
    work.
