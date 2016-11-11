@@ -25,6 +25,16 @@
 
 ;;; Code:
 
+(defgroup hl-issue-id nil
+  "Highlit issue id like #123."
+  :group 'font-lock-extra-types)
+
+(defcustom hl-issue-id-activate-in-modes '() ; FIXME: Not working well
+  "Major modes in which `hl-issue-mode' should be activated.
+This is used by `global-hl-issue-id-mode'."
+  :group 'hl-issue-id
+  :type '(repeat function))
+
 ;;;###autoload
 (define-minor-mode hl-issue-id-mode
   "Highlight issue id like #123."
@@ -42,6 +52,15 @@
           (font-lock-ensure))
       (with-no-warnings
         (font-lock-fontify-buffer)))))
+
+(defun turn-on-hl-issue-id-mode-if-desired ()
+  (when (and (not hl-issue-id-mode)
+             (apply #'derived-mode-p hl-issue-id-activate-in-modes))
+    (hl-issue-id-mode 1)))
+
+;;;###autoload
+(define-globalized-minor-mode global-hl-issue-id-mode
+  hl-issue-id-mode turn-on-hl-issue-id-mode-if-desired)
 
 (provide 'hl-issue-id)
 ;;; hl-issue-id.el ends here
